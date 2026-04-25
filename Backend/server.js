@@ -5,27 +5,15 @@ import mongoose from "mongoose";
 import chatRoutes from "./routes/chat.js";
 
 const app = express();
-// const PORT = 3000;
 
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
 
-
 app.use("/api", chatRoutes);
 
-
-// app.listen(PORT, () => {
-//     console.log(`server running on ${PORT}`);
-//     connectDB();
-// });
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on ${PORT}`);
-    connectDB();
-});
-
-//create func
+// create func 
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_ATLAS_URI);
@@ -34,14 +22,15 @@ const connectDB = async () => {
     catch (err) {
         console.log("Database connection failed. ", err);
     }
-}
+};
 
-// app.get("/", (req, res) => {
-//     res.send("Backend is live 🚀");
-// });
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on ${PORT}`);
+    connectDB();
+});
 
-app.get("/testtest", (req, res) => {
-    res.send("API working");
+app.get("/", (req, res) => {
+    res.send("Backend is live");
 });
 
 
