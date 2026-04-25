@@ -5,7 +5,9 @@ import mongoose from "mongoose";
 import chatRoutes from "./routes/chat.js";
 
 const app = express();
-const PORT = 3000;
+// const PORT = 3000;
+
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
@@ -14,8 +16,12 @@ app.use(cors());
 app.use("/api", chatRoutes);
 
 
-app.listen(PORT, () => {
-    console.log(`server running on ${PORT}`);
+// app.listen(PORT, () => {
+//     console.log(`server running on ${PORT}`);
+//     connectDB();
+// });
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on ${PORT}`);
     connectDB();
 });
 
@@ -30,11 +36,13 @@ const connectDB = async () => {
     }
 }
 
+// app.get("/", (req, res) => {
+//     res.send("Backend is live 🚀");
+// });
 
-
-
-
-
+app.get("/testtest", (req, res) => {
+    res.send("API working");
+});
 
 
 
@@ -74,14 +82,6 @@ const connectDB = async () => {
 
 
 
-
-
-
-
-
-
-
-
 // import OpenAI from 'openai';
 // import 'dotenv/config';
 
@@ -95,32 +95,6 @@ const connectDB = async () => {
 // });
 
 // console.log(response.output_text);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
