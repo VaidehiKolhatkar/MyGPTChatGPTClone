@@ -2,6 +2,7 @@ import "./Sidebar.css";
 import { useContext, useState, useEffect } from "react";
 import { MyContext } from "./MyContext.jsx";
 import { v1 as uuid } from "uuid";
+import logo from "../assets/chatgpt_logo.png";
 
 function Sidebar() {
 
@@ -72,7 +73,7 @@ function Sidebar() {
 
             {/* //chatgpt logo */}
             <button onClick={createNewChat}>
-                <img src="src/assets/chatgpt_logo.png" alt="logo" className="logo"></img>
+                <img src={logo} alt="logo" className="logo" />
                 Create New Chat
                 <i className="fa-light fa-pen-to-square"></i>
             </button>
