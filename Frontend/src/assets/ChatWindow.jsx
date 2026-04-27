@@ -113,7 +113,7 @@ function ChatWindow() {
     return (
         <div className="chatwindow" >
             <div className="navbar">
-                <span>MyGPT  <i className="fa-solid fa-chevron-down"></i></span>
+                <span>SparkAI  <i className="fa-solid fa-chevron-down"></i></span>
                 <div className="user_acc_icon" onClick={accDropdown}>
                     <span className="usericon"><i className="fa-solid fa-user"></i></span>
                 </div>
