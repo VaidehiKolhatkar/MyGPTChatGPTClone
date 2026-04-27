@@ -9,7 +9,7 @@ function Sidebar() {
 
     const getAllThreads = async () => {
         try {
-            const response = await fetch("http://localhost:3000/api/thread");
+            const response = await fetch("https://mygptchatgptclone.onrender.com/api/thread");
             const res = await response.json();
             const filteredData = res.map(thread => ({ threadID: thread.threadID, title: thread.title }));
             setAllThreads(filteredData);
@@ -36,7 +36,7 @@ function Sidebar() {
         setThreadID(newThreadID);
 
         try {
-            const response = await fetch(`http://localhost:3000/api/thread/${newThreadID}`);
+            const response = await fetch(`https://mygptchatgptclone.onrender.com/api/thread/${newThreadID}`);
             const res = await response.json();
             console.log(res);
             setPrevChat(res);
@@ -49,7 +49,7 @@ function Sidebar() {
 
     const deleteThread = async (threadID) => {
         try {
-            const response = await fetch(`http://localhost:3000/api/thread/${threadID}`, { method: "DELETE" });
+            const response = await fetch(`https://mygptchatgptclone.onrender.com/api/thread/${threadID}`, { method: "DELETE" });
             const res = await response.json();
             console.log(res);
 
